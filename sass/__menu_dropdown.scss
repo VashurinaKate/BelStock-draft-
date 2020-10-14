@@ -1,0 +1,71 @@
+/*
+Dropdown
+
+Выпадающее меню при наведении. Чтобы добавить выпадающее меню, необходимо добавить к элементу li класс `<li class="drop-link">`
+
+Markup:
+<ul class="menu-item">
+    <li class="drop-link"><a href="#">Продукты</a>
+        <div class="menu menu--dropdown">
+            <ul class="submenu">
+                <li><a href="#">Подбор продуктов</a></li>
+                <li><a href="#">IP-оборудование</a></li>
+                <li><a href="#">HD-TVI - оборудование</a></li>
+                <li><a href="#">Домофония</a></li>
+                <li><a href="#">Аксессуары</a></li>
+            </ul>
+        </div>
+    </li>
+</ul>
+
+Styleguide Menu.Dropdown
+*/
+
+.menu--dropdown {
+    position: relative;
+}
+.submenu {
+    display: none;
+    position: absolute;
+    min-width: 250px;
+    padding: 0;
+    border-radius: 5px;
+    background: $gradient-main;
+    top: .1em;
+}
+.submenu a {
+    text-transform: none;
+    padding: 10px;
+    top: 1px;
+    color: $text-color-main;
+    display: block;
+    line-height: 30px;
+}
+.submenu a::before {
+    content: '';
+    transition: $transition-hover;
+}
+.submenu a:hover::before {
+    content: "\203A";
+    color: $gradient-main;
+    margin: 0 10px;
+}
+
+.drop-link {
+    position: relative;
+}
+.menu-item .drop-link > a {
+    padding: 0 20px 0 10px;
+}
+.drop-link > a::after {
+    content: "\032C";
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    color: $text-color-main;
+    font-size: 1.5em;
+}
+
+.drop-link:hover .submenu {
+    display: block;
+}

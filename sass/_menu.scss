@@ -1,0 +1,47 @@
+/*
+Menu
+
+Главное меню
+
+Markup:
+<div class="menu menu--main">
+    <ul class="menu-item">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Магазин</a></li>
+        <li><a href="#">Блог</a></li>
+        <li><a href="#">Контакты</a></li>
+    </ul>
+</div>
+
+Styleguide Menu
+*/
+.menu a {
+    text-decoration: none;
+
+}
+.menu-item {
+    display: flex;
+}
+.menu-item > li {
+    margin: 0 10px;
+}
+.menu-item > li > a {
+    display: block;
+    text-transform: uppercase;
+    color: $text-color-main;
+    line-height: 40px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    padding: 0 15px;
+    transition: $transition-hover;
+}
+.menu-item > li > a:active {
+    border: 1px solid $text-color-main;
+}
+.menu-item > li > a:hover {
+    border: 1px solid $text-color-main;
+}
+
+@import '__menu_dropdown';

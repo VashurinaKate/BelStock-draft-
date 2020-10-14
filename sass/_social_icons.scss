@@ -1,0 +1,51 @@
+/*
+Social_Icons
+
+Иконки социальных сетей
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="social">
+    <ul>
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
+    </ul>
+</div>
+
+Styleguide Social_Icons
+*/
+.social {
+    text-align: center;
+}
+.social > ul {
+    display: flex;
+    padding: 0;
+}
+.social > ul > li{
+    list-style-type: none;
+    padding: 0 5px;
+}
+.social a {
+    display: block;
+    color: $text-color-main;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $text-color-main;
+    border-radius: 50%;
+}
+.social i {
+    padding: 11px 10px;
+    font-size: 18px;
+}
+.social a:hover {
+    background: $gradient-dense;
+    border: 1px solid transparent;
+    box-shadow: $shadow-social;
+    transition: $transition-social;
+}

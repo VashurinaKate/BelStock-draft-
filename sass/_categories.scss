@@ -1,0 +1,60 @@
+/*
+Categories
+
+Категории товаров (справа или слева)
+
+Markup:
+<div class="categories">
+    <h3>Categories</h3>
+    <hr>
+    <ul>
+        <li><a href="#">IP-оборудование</a></li>
+        <li><a href="#">HD-TVI - оборудование</a></li>
+        <li><a href="#">Домофония</a></li>
+        <li><a href="#">Аксессуары</a></li>
+        <li><a href="#">Видеокамеры</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Lorem</a></li>
+    </ul>
+</div>
+
+Styleguide Categories
+*/
+.categories {
+    max-width: 300px;
+    background: white;
+    box-shadow: $shadow;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.categories > h3 {
+    text-transform: uppercase;
+}
+.categories > ul {
+    padding: 0 20px 40px 0;
+}
+.categories a {
+    text-transform: uppercase;
+    padding: 10px 0 10px 0;
+    color: $text-color_1;
+    display: block;
+    line-height: 30px;
+    text-decoration: none;
+    border-bottom: 1px solid $text-color_2;
+}
+.categories a:hover {
+    color: $categories-hover;
+    transition: $transition-social;
+}
+.categories a::before {
+    content: '';
+    transition: $transition-social;
+}
+.categories a:hover::before {
+    content: "\203A";
+    color: $categories-hover;
+    margin: 0 10px;
+}

@@ -1,0 +1,1413 @@
+@charset "UTF-8";
+/* 
+BASIC_STYLES
+
+Базовые стили для нашего сайта
+
+Markup:
+<head>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <p>Hello, World! This the example of Raleway font!</p>
+    <script src="js/docs.js"></script>
+</body>
+
+Styleguide BASIC_STYLES
+*/
+@font-face {
+  font-family: "Raleway";
+  src: url(Raleway/static/Raleway-Regular.ttf), url(Raleway/static/Raleway-Light.ttf), url(Raleway/static/Raleway-SemiBold.ttf), url(Raleway/static/Raleway-Bold.ttf);
+}
+* {
+  font-family: "Raleway";
+  letter-spacing: 0.08em;
+}
+
+li {
+  list-style-type: none;
+}
+
+hr {
+  width: 40px;
+  border: 1px solid transparent;
+  border-image: linear-gradient(to right, #a160fc, #0b83fb);
+  border-image-slice: 1;
+  margin-left: 0;
+  margin-bottom: 22px;
+}
+
+button {
+  outline: none;
+}
+
+/*
+Menu
+
+Главное меню
+
+Markup:
+<div class="menu menu--main">
+    <ul class="menu-item">
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Магазин</a></li>
+        <li><a href="#">Блог</a></li>
+        <li><a href="#">Контакты</a></li>
+    </ul>
+</div>
+
+Styleguide Menu
+*/
+.menu a {
+  text-decoration: none;
+}
+
+.menu-item {
+  display: flex;
+}
+
+.menu-item > li {
+  margin: 0 10px;
+}
+
+.menu-item > li > a {
+  display: block;
+  text-transform: uppercase;
+  color: white;
+  line-height: 40px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  padding: 0 15px;
+  transition: all 200ms;
+}
+
+.menu-item > li > a:active {
+  border: 1px solid white;
+}
+
+.menu-item > li > a:hover {
+  border: 1px solid white;
+}
+
+/*
+Dropdown
+
+Выпадающее меню при наведении. Чтобы добавить выпадающее меню, необходимо добавить к элементу li класс `<li class="drop-link">`
+
+Markup:
+<ul class="menu-item">
+    <li class="drop-link"><a href="#">Продукты</a>
+        <div class="menu menu--dropdown">
+            <ul class="submenu">
+                <li><a href="#">Подбор продуктов</a></li>
+                <li><a href="#">IP-оборудование</a></li>
+                <li><a href="#">HD-TVI - оборудование</a></li>
+                <li><a href="#">Домофония</a></li>
+                <li><a href="#">Аксессуары</a></li>
+            </ul>
+        </div>
+    </li>
+</ul>
+
+Styleguide Menu.Dropdown
+*/
+.menu--dropdown {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  min-width: 250px;
+  padding: 0;
+  border-radius: 5px;
+  background: linear-gradient(#a260fc80, #0b83fb80);
+  top: 0.1em;
+}
+
+.submenu a {
+  text-transform: none;
+  padding: 10px;
+  top: 1px;
+  color: white;
+  display: block;
+  line-height: 30px;
+}
+
+.submenu a::before {
+  content: "";
+  transition: all 200ms;
+}
+
+.submenu a:hover::before {
+  content: "›";
+  color: linear-gradient(#a260fc80, #0b83fb80);
+  margin: 0 10px;
+}
+
+.drop-link {
+  position: relative;
+}
+
+.menu-item .drop-link > a {
+  padding: 0 20px 0 10px;
+}
+
+.drop-link > a::after {
+  content: "̬";
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  color: white;
+  font-size: 1.5em;
+}
+
+.drop-link:hover .submenu {
+  display: block;
+}
+
+/*
+Buttons
+
+Варианты кнопок:
+1) с заливкой градиентом
+2) заливка при наведении
+3) добавление в корзину
+Важно не забыть добавить в html в head  `<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">` , чтобы появился значок корзины. В данном случае в тег button добавляется  `<i class="fa fa-shopping-cart" aria-hidden="true"></i>`
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<button class="btn {{modifier_class}}">Subscribe</button>
+<button class="btn btn--main">Subscribe</button>
+<button class="btn btn--transp">Read more</button>
+<button class="btn btn--cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</button>
+<button class="btn btn--share"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</button>
+
+.btn--main - основная кнопка
+.btn--transp - кнопка с прозрачным фоном
+.btn--cart - кнопка для добавления товара в корзину
+.btn--share - поделиться
+
+Styleguide Buttons
+*/
+.btn {
+  border: 1px solid transparent;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.btn--main, .btn--cart {
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn--main:hover {
+  border: 1px solid white;
+  background: transparent;
+  box-shadow: none;
+}
+
+.btn--cart:hover {
+  border: 1px solid #303030;
+  background: transparent;
+  box-shadow: none;
+  color: #303030;
+}
+
+.btn--transp, .btn--share {
+  background: transparent;
+  border: 1px solid white;
+}
+
+.btn--transp:hover, .btn--share:hover {
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  border: 1px solid transparent;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn--cart {
+  text-transform: none;
+}
+
+.btn--cart > i {
+  padding-right: 10px;
+}
+
+.btn--share > i {
+  padding-right: 10px;
+}
+
+/* 
+Search_Elements
+
+Элементы поиска и значок просмотра корзины.
+Важно не забыть добавить в html в head  `<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">` , чтобы появился значок корзины. В данном случае в тег button добавляется  `<i class="fa fa-shopping-cart" aria-hidden="true"></i>`
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="search {{modifier_class}}"><i class="fa fa-search"></i></div>
+<div class="search search--transp"><i class="fa fa-search"></i></div>
+<div class="search search--main"><i class="fa fa-search"></i></div>
+<div class="search search--cart"><i class="fa fa-shopping-cart"></i></div>
+
+.search--main - лупа с заливкой
+.search--transp - лупа на прозрачном фоне
+.search--cart - просмотр корзины
+
+Styleguide Search_Elements
+*/
+.search {
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+
+.search > i {
+  padding: 12px 0 0 13px;
+}
+
+.search--main {
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  border: 1px solid transparent;
+}
+
+/*
+Search_Field
+
+Поле поиска, которое появляется при нажатии на лупу
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="search__field">
+    <form class="search-form">
+        <div class="search-block">
+            <input type="search" value="" placeholder="Search" class="search-input">
+            <button type="submit" class="search search--button"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
+</div>
+
+Styleguide Search_Elements.Search_Field
+*/
+.search__field {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(#a260fc80, #0b83fb80);
+  border-radius: 5px;
+  padding-top: 10px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.search-input {
+  color: #8a8a8a;
+  width: 170px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid white;
+  padding-left: 20px;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.search--button {
+  position: absolute;
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  border: 1px solid transparent;
+  right: 29px;
+}
+
+.search--button > i {
+  padding: 0;
+}
+
+/*
+Search_Field
+
+Поле поиска, которое появляется при нажатии на лупу
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="search__field">
+    <form class="search-form">
+        <div class="search-block">
+            <input type="search" value="" placeholder="Search" class="search-input">
+            <button type="submit" class="search search--button"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
+</div>
+
+Styleguide Search_Elements.Search_Field
+*/
+.search__field {
+  width: 200px;
+  height: 50px;
+  background: linear-gradient(#a260fc80, #0b83fb80);
+  border-radius: 5px;
+  padding-top: 10px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.search-input {
+  color: #8a8a8a;
+  width: 170px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid white;
+  padding-left: 20px;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.search--button {
+  position: absolute;
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  border: 1px solid transparent;
+  right: 29px;
+}
+
+.search--button > i {
+  padding: 0;
+}
+
+/*
+Search_Field_in_Categories
+
+Еще один вид поля поиска в категориях товаров.
+Стили с основным полем поиска (которое в меню) могут пересекаться, поэтому имеет значение последовательность @import в sass
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="search__field search__field-2">
+    <span>Search</span>
+    <hr>
+    <form class="search-form">
+        <div class="search-block"><input type="search" value="" placeholder="Search" class="search-input">
+            <button type="submit" class="search search--button"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
+</div>
+
+Styleguide Search_Elements.Search_Field_in_Categories
+*/
+.search__field-2 {
+  width: 300px;
+  height: 130px;
+  background: white;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.search__field-2 > span {
+  text-transform: uppercase;
+  line-height: 40px;
+}
+
+.search__field-2 .search-input {
+  border: 1px solid #8a8a8a;
+  width: 270px;
+}
+
+/*
+Media
+
+Медиа-объекты на странице - заголовок, небольшой текст и изображение (либо ссылка)
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="media">
+    <a href=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i><div class="help-tr"></div></a>
+    <h3>Unique design</h3>
+    <hr>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor voluptas omnis adipisci. Non officia, culpa tempora omnis tenetur molestias libero!</p>
+</div>
+
+Styleguide Media
+*/
+.media {
+  width: 300px;
+  text-align: center;
+}
+
+.media > h3 {
+  text-transform: uppercase;
+}
+
+.media > p {
+  color: #8a8a8a;
+}
+
+.media > a {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 1px solid linear-gradient(#a160fc, #0b83fb);
+  border-radius: 5px;
+  position: relative;
+}
+
+.media > hr {
+  margin: 0 auto;
+  transition: all 200ms;
+}
+
+.media > a > i {
+  background: linear-gradient(#a160fc, #0b83fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 30px;
+  padding-top: 17px;
+}
+
+.media:hover a {
+  border: 1px solid transparent;
+}
+
+.media:hover .help-tr {
+  opacity: 1;
+}
+
+.help-tr {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#a160fc, #0b83fb);
+  border-radius: 5px;
+  border: 1px solid transparent;
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.media:hover i {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+}
+
+.media:hover hr {
+  width: 70px;
+}
+
+/*
+Media_Numbers
+
+Медиа-объект с численными показателями
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="media-numbers">
+    <div class="help-num"></div>
+    <div class="media-numbers-body">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <div class="media-num-content">
+            <span>1520</span>
+            <h3>Hours worked</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quo reprehenderit aperiam, perferendis neque ipsum eius amet doloremque sint voluptas!</p>
+            <hr>
+        </div> 
+    </div>
+</div>
+
+Styleguide Media.Media_Numbers
+*/
+.media-numbers {
+  max-width: 400px;
+  max-height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.media-numbers:hover .help-num {
+  opacity: 1;
+}
+
+.help-num {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 200ms;
+  z-index: -1;
+  background: linear-gradient(#a160fc, #0b83fb);
+}
+
+.media-numbers-body {
+  padding: 40px 40px;
+  color: white;
+}
+
+.media-numbers-body > i {
+  float: left;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.media-numbers-body i::before {
+  transition: all 1s;
+  opacity: 1;
+  background: linear-gradient(#a160fc, #0b83fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.media-numbers-body:hover i::before {
+  -webkit-text-fill-color: white;
+}
+
+.media-numbers span {
+  font-size: 40px;
+}
+
+.media-numbers h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.media-num-content {
+  overflow: auto;
+}
+
+.media-numbers hr {
+  transition: all 200ms;
+}
+
+.media-numbers:hover hr {
+  border: 1px solid white;
+  width: 70px;
+}
+
+/*
+Media_Contacts
+
+Медиа-объект с контактами
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="media_contatcs {{modifier_class}}">
+    <h3>Adress</h3>
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <p>Овчинниковская набережная, 22/24с1</p>
+    <span>Москва, Россия, 115035</span>
+</div>
+<div class="media_contatcs media_contacts--adress">
+    <h3>Adress</h3>
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <p>Овчинниковская набережная, 22/24с1</p>
+    <span>Москва, Россия, 115035</span>
+</div>
+<div class="media_contatcs media_contacts--phone">
+    <h3>Phone</h3>
+    <i class="fa fa-mobile" aria-hidden="true"></i>
+    <p>Phone:<span>+7 921 185 60 88</span></p>
+    <p>Fax:<span>+(800) 789 123 456</span></p>
+</div>
+<div class="media_contatcs media_contacts--email">
+    <h3>E-mail</h3>
+    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+    <span><a href="mailto:wasturina.ekatterina@gmail.com">wasturina.ekatterina@gmail.com</a></span>
+</div>
+
+Styleguide Media.Media_Contacts
+*/
+.media_contatcs {
+  width: 320px;
+  height: 320px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.media_contatcs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -2px;
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  border-radius: inherit;
+}
+
+.media_contatcs > h3 {
+  text-transform: uppercase;
+}
+
+.media_contatcs > i {
+  font-size: 50px;
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.media_contatcs > p {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.media_contatcs a {
+  color: black;
+  text-decoration: none;
+  line-height: 60px;
+  transition: all 200ms;
+}
+
+.media_contatcs a:hover {
+  color: blue;
+}
+
+/*
+Like
+
+Значок лайка
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="like"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+
+Styleguide Like
+*/
+.like {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #8a8a8a;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  transition: all 200ms;
+}
+
+.like > i {
+  color: #8a8a8a;
+  padding: 14px 0 0 12px;
+}
+
+.like:hover {
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.like:hover > i {
+  color: white;
+}
+
+/*
+Product_Card
+
+Карточка товара
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="product">
+    <div class="product-image">
+        <a href="#" class="product-link"><img src="img/cam2.jpg" alt="camera"></a>
+    </div>
+    <div class="product-content">
+        <a href="#" class="product-link"><h3>Product name</h3></a>
+        <div class="sale-price">
+        <span class="old_price">Price $$$</span>
+        <span class="sale">120$</span>
+        </div>
+        <div class="stars">
+            <i id="star_1" class="fa fa-star-o" aria-hidden="true"></i>
+            <i id="star_2" class="fa fa-star-o" aria-hidden="true"></i>
+            <i id="star_3" class="fa fa-star-o" aria-hidden="true"></i>
+            <i id="star_4" class="fa fa-star-o" aria-hidden="true"></i>
+            <i id="star_5" class="fa fa-star-o" aria-hidden="true"></i>
+        </div>
+        <p>Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi sunt enim consequatur totam nihil. Sit voluptatem rerum eius quaerat? Iste voluptatem sed optio quaerat sint dolorum aliquid illo quo laudantium ullam alias cupiditate iure, omnis vel delectus dolore debitis saepe aperiam cum culpa?</p>
+        <div class="add-product">
+            <button class="btn btn--cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</button>
+            <div class="like"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+        </div>    
+    </div>
+</div>
+
+Styleguide Product_Card
+*/
+.product {
+  max-width: 370px;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  background: white;
+}
+
+.product-image img {
+  object-fit: cover;
+  max-width: 100%;
+  height: 370px;
+}
+
+.product-content {
+  padding: 0 25px 25px 25px;
+}
+
+.product-link {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 50px;
+}
+
+.stars {
+  padding-top: 20px;
+  color: #8a8a8a;
+}
+
+.product p {
+  color: #303030;
+  max-height: 60px;
+  overflow: auto;
+}
+
+.add-product {
+  display: flex;
+}
+
+.add-product > .like {
+  margin-left: 10px;
+}
+
+.old_price {
+  text-decoration: line-through;
+}
+
+.sale {
+  color: blue;
+  background: yellow;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+/*
+Social_Icons
+
+Иконки социальных сетей
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="social">
+    <ul>
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
+    </ul>
+</div>
+
+Styleguide Social_Icons
+*/
+.social {
+  text-align: center;
+}
+
+.social > ul {
+  display: flex;
+  padding: 0;
+}
+
+.social > ul > li {
+  list-style-type: none;
+  padding: 0 5px;
+}
+
+.social a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.social i {
+  padding: 11px 10px;
+  font-size: 18px;
+}
+
+.social a:hover {
+  background: linear-gradient(#a160fc, #0b83fb);
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 5px rgba(92, 8, 128, 0.06);
+  transition: 100ms;
+}
+
+/*
+Categories
+
+Категории товаров (справа или слева)
+
+Markup:
+<div class="categories">
+    <h3>Categories</h3>
+    <hr>
+    <ul>
+        <li><a href="#">IP-оборудование</a></li>
+        <li><a href="#">HD-TVI - оборудование</a></li>
+        <li><a href="#">Домофония</a></li>
+        <li><a href="#">Аксессуары</a></li>
+        <li><a href="#">Видеокамеры</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Lorem</a></li>
+        <li><a href="#">Lorem</a></li>
+    </ul>
+</div>
+
+Styleguide Categories
+*/
+.categories {
+  max-width: 300px;
+  background: white;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.categories > h3 {
+  text-transform: uppercase;
+}
+
+.categories > ul {
+  padding: 0 20px 40px 0;
+}
+
+.categories a {
+  text-transform: uppercase;
+  padding: 10px 0 10px 0;
+  color: #303030;
+  display: block;
+  line-height: 30px;
+  text-decoration: none;
+  border-bottom: 1px solid #8a8a8a;
+}
+
+.categories a:hover {
+  color: blue;
+  transition: 100ms;
+}
+
+.categories a::before {
+  content: "";
+  transition: 100ms;
+}
+
+.categories a:hover::before {
+  content: "›";
+  color: blue;
+  margin: 0 10px;
+}
+
+/*
+Cart
+
+Корзина с товарами. При добавлении товара в код добаляются `<tr class="cart-item"`, находящиеся в теге `tbody`.
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="cart">
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="cart-item">
+                <td class="image-item"><a href="#"><img src="img/cam2.jpg" alt=""></a></td>
+                <td class="price-item">990,70$</td>
+                <td class="quantity-item">
+                    <div class="quant-wrap">
+                        <div class="minus"><i class="fa fa-angle-down" aria-hidden="true"></i></div><span>&#448;</span><div class="plus"><i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input type="text" value="1"</td>
+                <td class="total-item">990,70$</td>
+                <td class="remove-item"><div class="remove"></div></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><input type="text" placeholder="Coupon code" class="search-input">
+                <button class="btn btn--cart">Apply coupon</button></td>
+                <td colspan="2"><button class="btn btn--cart">Update cart</button></td>    
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+Styleguide Cart
+*/
+.cart > table {
+  background: white;
+  border-collapse: collapse;
+  border-radius: 0px 0px 5px 5px;
+  text-align: center;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.cart > table td, th {
+  padding: 10px 19px;
+  width: 120px;
+}
+
+.cart thead {
+  display: table-caption;
+  border-radius: 5px 5px 0px 0px;
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  line-height: 50px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cart > table td {
+  padding-top: 40px;
+}
+
+.image-item img {
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+}
+
+.cart > table .quant-wrap {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid #8a8a8a;
+  color: #8a8a8a;
+}
+
+.cart > table .quant-wrap div {
+  display: inline-block;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+.quant-wrap div:hover {
+  color: #303030;
+}
+
+.quantity-item input {
+  border: none;
+  width: 25px;
+  height: 20px;
+  text-align: center;
+  transition: all 200ms;
+  outline: 4px solid transparent;
+}
+
+.quantity-item input:focus {
+  outline: 1px solid #8a8a8a;
+}
+
+.remove-item {
+  text-align: center;
+  color: #8a8a8a;
+  padding: 3px 5px;
+}
+
+.remove {
+  margin: 0 auto;
+  cursor: pointer;
+  width: 29px;
+  height: 27px;
+  border-radius: 50%;
+  border: 1px solid #8a8a8a;
+}
+
+.remove::after {
+  content: "𐄂";
+}
+
+.remove:hover:after {
+  color: #303030;
+}
+
+.cart tfoot input {
+  border: 1px solid #8a8a8a;
+}
+
+.cart .tfoot {
+  position: absolute;
+  bottom: 40px;
+}
+
+.cart tfoot td {
+  padding-bottom: 40px;
+}
+
+/*
+Product_Description
+
+Страница товара. Быть внимательнее с путями к картинкам. Необходимо к каждому товару с изображениями создать их миниатюры для слайдера и назвать их, к примеру: если имя большого изображения `img1.jpg`, то имя миниатюры должно быть `img1-001.jpg`. Обязательно подключить в `head` : `<link rel="stylesheet" href="pattern-library/slick/slick.css">` и `<link rel="stylesheet" href="pattern-library/slick/slick-theme.css">`. В конце подключить (в правильной последовательности: сначала jQuery, потом скрипт!!!): `<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>`, `<script src="pattern-library/slick/slick.min.js"></script>`, `<script src="pattern-library/js/parts/prod_slider.js"></script>`.
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="slick/slick.css">
+<link rel="stylesheet" href="slick/slick-theme.css">
+<div class="prod-description">
+    <hr>
+    <h3>IMAC 27 inch retina</h3>
+    <div class="stars">
+        <i id="star_1" class="fa fa-star-o" aria-hidden="true"></i>
+        <i id="star_2" class="fa fa-star-o" aria-hidden="true"></i>
+        <i id="star_3" class="fa fa-star-o" aria-hidden="true"></i>
+        <i id="star_4" class="fa fa-star-o" aria-hidden="true"></i>
+        <i id="star_5" class="fa fa-star-o" aria-hidden="true"></i>
+    </div>
+    <div class="product-slider">
+        <div class="prod">
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img1.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img2.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img3.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img4.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img5.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img6.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img7.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img8.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img9.jpg" alt="картинка слайда">
+            </div>
+            <div class="prod__slide">
+                <img class="prod__img" src="img/cart_prod/img10.jpg" alt="картинка слайда">
+            </div>
+        </div>
+            <div class="prodmin">
+            <div class="prodmin__slide"><img src="img/cart_prod/img1-001.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img2-002.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img3-003.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img4-004.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img5-005.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img6-006.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img7-007.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img8-008.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img9-009.jpg" alt=""></div>
+            <div class="prodmin__slide"><img src="img/cart_prod/img10-010.jpg" alt=""><div>
+        </div>
+    </div>
+    </div>
+    <div class="prod-wrap"><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae laborum vitae hic nemo, tenetur itaque et officia corrupti, praesentium neque optio, error exercitationem. Consectetur, ad iusto. Tempore rem quasi voluptate?</p>
+    <span class="old_price">Price $$$</span>
+    <span class="sale">120$</span>
+    <div class="add-prod-wrap">
+        <div class="quantity-item">
+            <span>Quantity</span>
+            <div class="quant-wrap">
+                <div class="minus">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </div>
+                <span>&#448;</span>
+                <div class="plus">
+                    <i class="fa fa-angle-up" aria-hidden="true"></i>
+                </div>
+                </div>
+                    <input type="text" value="1">
+                </div>
+                <div class="btn-wrap">
+                    <button class="btn btn--cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</button>
+                </div> 
+                <div class="like-wrap">
+                    <div class="like"><i class="fa fa-heart-o" aria-hidden="true"></i>
+                </div>
+        </div>
+    </div>
+</>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="slick/slick.min.js"></script>
+<script src="js/parts/prod_slider.js"></script>
+
+Styleguide Product_Description
+*/
+.prod-description {
+  padding: 40px 30px 0;
+  background: white;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+  max-width: 650px;
+  border-radius: 5px;
+}
+
+.prod-description h3 {
+  text-transform: uppercase;
+}
+
+.prod-description .stars {
+  padding-top: 0;
+}
+
+.prod-description p {
+  font-size: 15px;
+  padding: 20px 0;
+}
+
+.prod-description .like-wrap {
+  padding-left: 20px;
+}
+
+.product-slider {
+  max-width: 800px;
+}
+
+.slick-prev, .slick-next {
+  top: 60%;
+}
+
+.prod__slide, .prodmin__slide {
+  outline: none;
+  padding: 20px;
+}
+
+.prod__slide img {
+  object-fit: cover;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.prodmin__slide img {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.slick-prev::before,
+.slick-next::before {
+  background: linear-gradient(to right, #a160fc, #0b83fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.add-prod-wrap {
+  display: flex;
+  padding: 40px 0;
+}
+
+.add-prod-wrap .quantity-item {
+  flex-basis: 30%;
+  margin-top: 5px;
+}
+
+.add-prod-wrap .quantity-item > span {
+  font-size: 14px;
+  color: #303030;
+}
+
+.btn-wrap {
+  flex-basis: 23%;
+}
+
+/*
+Footer
+
+Много недоработок. Нужно прилепить его к низу, но почему-то не получается
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<footer>
+    <div class="footer-wrap">
+        <div class="about_company">
+            <h3>About company</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex est, quae, hic facere perferendis doloremque cupiditate quas magni corrupti voluptas ad eos exercitationem incidunt dolor, eveniet illum sed dicta autem quos minima. Aut cupiditate reprehenderit harum, libero sapiente blanditiis officiis?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque natus accusantium harum veritatis quae provident culpa, debitis pariatur aliquid non?</p>
+            <button class="btn btn--transp">Details</button>
+        </div>
+        <div class="our_featured">
+            <h3>Our featured</h3>
+            <ul class="featured">
+                <li><a href="#">Подбор продуктов</a></li>
+                <li><a href="#">IP-оборудование</a></li>
+                <li><a href="#">HD-TVI - оборудование</a></li>
+                <li><a href="#">Домофония</a></li>
+                <li><a href="#">Аксессуары</a></li>
+            </ul>
+        </div>
+        <div class="latest_news">
+            <h3>Latest news</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta hic ipsum ab aliquam harum officiis, dolore velit nam repudiandae suscipit corporis facilis? Harum illum quisquam distinctio natus ipsum illo eligendi quod, nisi similique magni facere veniam fugit repellat ut unde repudiandae sed, odit vero magnam asperiores sit dolor beatae earum quo? Obcaecati corporis quis possimus pariatur et hic vel!</p>
+        </div>
+        <div class="contact_us">
+            <h3>Contact us</h3>
+            <div class="foot_contact foot_contact--adress">
+                <div class="i-wrap"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <div class="contact-content"><span>1600 Amphitheatre</span><br>
+                <span>Parkway</span></div>
+            </div>
+            <div class="foot_contact foot_contact--phone">
+                <div class="i-wrap"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="contact-content"><span><a href="callto:5551234567">+(555) 123 45 67</a></span></div>
+            </div>
+            <div class="foot_contact foot_contact--mail">
+                <div class="i-wrap"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                <div class="contact-content"><span><a href="mailto:wasturina.ekatterina@gmail.com">wasturina.ekatterina@gmail.com</a></span><br>
+                <span>madewithlove2020</span></div>
+            </div>
+            <div class="foot_contact foot_contact--scedule">
+                <div class="i-wrap"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                <div class="contact-content"><span>Mon - Sat: 08 AM - 17 PM</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="social">
+    <ul>
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
+    </ul>
+    <span>Copyright &copy; 2020 VashurinaKate. All rights reserved.</span>
+    </div>     
+</footer>
+
+Styleguide Footer
+*/
+footer {
+  /*position: absolute;*/
+  color: white;
+  width: 100%;
+  background: url("img/footer-bg.jpg"), linear-gradient(#a160fc, #0b83fb);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  padding: 20px;
+}
+
+.footer-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.footer-wrap > div {
+  padding: 20px;
+}
+
+.footer-wrap h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.footer-wrap p, span {
+  line-height: 20px;
+}
+
+.about_company {
+  flex: 1;
+}
+
+.about_company .btn {
+  margin-top: 20px;
+}
+
+.our_featured {
+  flex: 1;
+}
+
+.our_featured > ul {
+  padding: 0 20px 40px 0;
+}
+
+.our_featured a {
+  padding-bottom: 20px;
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.our_featured a:hover {
+  transition: 0.2s;
+}
+
+.our_featured a::before {
+  content: "";
+  transition: 0.2s;
+}
+
+.our_featured a:hover::before {
+  content: "›";
+  margin: 0 10px;
+}
+
+.latest_news {
+  flex: 1;
+}
+
+.contact_us {
+  flex: 1;
+}
+
+.foot_contact {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.foot_contact > .i-wrap {
+  padding-right: 20px;
+}
+
+footer .social {
+  margin: 0 auto;
+  width: min-content;
+}
+
+footer > .social > ul {
+  padding: 20px 50px;
+}
+
+/*# sourceMappingURL=styles.css.map */

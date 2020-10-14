@@ -1,0 +1,28 @@
+$gradient-main: linear-gradient(#a260fc80, #0b83fb80);
+$gradient-dense: linear-gradient(#a160fc, #0b83fb);
+$text-color-main: white;
+$font-stack: Helvetica, sans-serif;
+$text-color_1: rgb(48, 48, 48);
+$text-color_2: rgb(138, 138, 138);
+$shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.5);
+$transition-hover: all 200ms;
+$categories-hover: blue;
+$sale-price: blue;
+$sale-price-bg: yellow;
+$shadow-social: 0px 0px 0px 5px rgb(92 8 128 / 6%);
+$hr-color: linear-gradient(to right, #a160fc, #0b83fb);
+$transition-social: 100ms;
+@import 'basic';
+@import '_menu';
+@import '_buttons';
+@import '_search_elements';
+@import '_search_field'; // Последовательность имеет значение!!!
+@import '__search_field_in_categories';
+@import '_media';
+@import '_like';
+@import '_product_card';
+@import '_social_icons';
+@import '_categories';
+@import '_cart';
+@import '_product_description';
+@import 'footer';

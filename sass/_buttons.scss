@@ -1,0 +1,71 @@
+/*
+Buttons
+
+Варианты кнопок:
+1) с заливкой градиентом
+2) заливка при наведении
+3) добавление в корзину
+Важно не забыть добавить в html в head  `<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">` , чтобы появился значок корзины. В данном случае в тег button добавляется  `<i class="fa fa-shopping-cart" aria-hidden="true"></i>`
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<button class="btn {{modifier_class}}">Subscribe</button>
+<button class="btn btn--main">Subscribe</button>
+<button class="btn btn--transp">Read more</button>
+<button class="btn btn--cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</button>
+<button class="btn btn--share"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</button>
+
+.btn--main - основная кнопка
+.btn--transp - кнопка с прозрачным фоном
+.btn--cart - кнопка для добавления товара в корзину
+.btn--share - поделиться
+
+Styleguide Buttons
+*/
+.btn {
+    border: 1px solid transparent;
+    height: 40px;
+    border-radius: 20px;
+    color: $text-color-main;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: $transition-hover;
+}
+
+.btn--main, .btn--cart {
+    background: $hr-color;
+    box-shadow: $shadow;
+}
+
+.btn--main:hover {
+    border: 1px solid $text-color-main;
+    background: transparent;
+    box-shadow: none;
+}
+.btn--cart:hover {
+    border: 1px solid $text-color_1;
+    background: transparent;
+    box-shadow: none;
+    color: $text-color_1;
+}
+.btn--transp, .btn--share {
+    background: transparent;
+    border: 1px solid $text-color-main;
+}
+.btn--transp:hover, .btn--share:hover {
+    background: $hr-color;
+    border: 1px solid transparent;
+    box-shadow: $shadow;
+}
+.btn--cart {
+    text-transform: none;
+}
+.btn--cart > i {
+    padding-right: 10px;
+} 
+
+.btn--share > i {
+padding-right: 10px;
+}

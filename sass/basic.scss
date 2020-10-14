@@ -1,0 +1,40 @@
+/* 
+BASIC_STYLES
+
+Базовые стили для нашего сайта
+
+Markup:
+<head>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <p>Hello, World! This the example of Raleway font!</p>
+    <script src="js/docs.js"></script>
+</body>
+
+Styleguide BASIC_STYLES
+*/
+@font-face {
+    font-family: 'Raleway';
+    src: url(Raleway/static/Raleway-Regular.ttf), url(Raleway/static/Raleway-Light.ttf), url(Raleway/static/Raleway-SemiBold.ttf), url(Raleway/static/Raleway-Bold.ttf);
+}
+
+* {
+    font-family: 'Raleway';
+    letter-spacing: .08em;
+}
+
+li {
+    list-style-type: none;
+}
+hr {
+    width: 40px;
+    border: 1px solid transparent; 
+    border-image: $hr-color;
+    border-image-slice: 1;
+    margin-left: 0;
+    margin-bottom: 22px;
+}
+button {
+    outline: none;
+}

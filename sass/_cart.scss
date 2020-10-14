@@ -1,0 +1,129 @@
+/*
+Cart
+
+Корзина с товарами. При добавлении товара в код добаляются `<tr class="cart-item"`, находящиеся в теге `tbody`.
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="cart">
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="cart-item">
+                <td class="image-item"><a href="#"><img src="img/cam2.jpg" alt=""></a></td>
+                <td class="price-item">990,70$</td>
+                <td class="quantity-item">
+                    <div class="quant-wrap">
+                        <div class="minus"><i class="fa fa-angle-down" aria-hidden="true"></i></div><span>&#448;</span><div class="plus"><i class="fa fa-angle-up" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <input type="text" value="1"</td>
+                <td class="total-item">990,70$</td>
+                <td class="remove-item"><div class="remove"></div></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"><input type="text" placeholder="Coupon code" class="search-input">
+                <button class="btn btn--cart">Apply coupon</button></td>
+                <td colspan="2"><button class="btn btn--cart">Update cart</button></td>    
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+Styleguide Cart
+*/
+
+.cart > table {
+    background: white;
+    border-collapse: collapse;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    box-shadow: $shadow;
+}
+.cart > table td, th {
+    padding: 10px 19px;
+    width: 120px;
+}
+.cart thead {
+    display: table-caption;
+    border-radius: 5px 5px 0px 0px;
+    background: $hr-color;
+    line-height: 50px;
+    color: $text-color-main;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.cart > table td {
+    padding-top: 40px;
+}
+.image-item img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+}
+.cart > table .quant-wrap {
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid $text-color_2;
+    color: $text-color_2;
+}
+.cart > table .quant-wrap div {
+    display: inline-block;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+.quant-wrap div:hover {
+    color: $text-color_1;
+}
+.quantity-item input {
+    border: none;
+    width: 25px;
+    height: 20px;
+    text-align: center;
+    transition: $transition-hover;
+    outline: 4px solid transparent;
+}
+.quantity-item input:focus {
+    outline: 1px solid $text-color_2;
+}
+.remove-item {
+    text-align: center;
+    color: $text-color_2;
+    padding: 3px 5px;
+}
+.remove {
+    margin: 0 auto;
+    cursor: pointer;
+    width: 29px;
+    height: 27px;
+    border-radius: 50%;
+    border: 1px solid $text-color_2;
+}
+.remove::after {
+    content: '\10102';
+}
+.remove:hover:after {
+color: $text-color_1;
+}
+
+.cart tfoot input {
+    border: 1px solid $text-color_2;
+}
+
+.cart .tfoot {
+    position: absolute;
+    bottom: 40px;
+}
+.cart tfoot td {
+    padding-bottom: 40px;
+}

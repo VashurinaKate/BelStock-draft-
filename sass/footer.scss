@@ -1,0 +1,144 @@
+/*
+Footer
+
+Много недоработок. Нужно прилепить его к низу, но почему-то не получается
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<footer>
+    <div class="footer-wrap">
+        <div class="about_company">
+            <h3>About company</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex est, quae, hic facere perferendis doloremque cupiditate quas magni corrupti voluptas ad eos exercitationem incidunt dolor, eveniet illum sed dicta autem quos minima. Aut cupiditate reprehenderit harum, libero sapiente blanditiis officiis?</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque natus accusantium harum veritatis quae provident culpa, debitis pariatur aliquid non?</p>
+            <button class="btn btn--transp">Details</button>
+        </div>
+        <div class="our_featured">
+            <h3>Our featured</h3>
+            <ul class="featured">
+                <li><a href="#">Подбор продуктов</a></li>
+                <li><a href="#">IP-оборудование</a></li>
+                <li><a href="#">HD-TVI - оборудование</a></li>
+                <li><a href="#">Домофония</a></li>
+                <li><a href="#">Аксессуары</a></li>
+            </ul>
+        </div>
+        <div class="latest_news">
+            <h3>Latest news</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis soluta hic ipsum ab aliquam harum officiis, dolore velit nam repudiandae suscipit corporis facilis? Harum illum quisquam distinctio natus ipsum illo eligendi quod, nisi similique magni facere veniam fugit repellat ut unde repudiandae sed, odit vero magnam asperiores sit dolor beatae earum quo? Obcaecati corporis quis possimus pariatur et hic vel!</p>
+        </div>
+        <div class="contact_us">
+            <h3>Contact us</h3>
+            <div class="foot_contact foot_contact--adress">
+                <div class="i-wrap"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <div class="contact-content"><span>1600 Amphitheatre</span><br>
+                <span>Parkway</span></div>
+            </div>
+            <div class="foot_contact foot_contact--phone">
+                <div class="i-wrap"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="contact-content"><span><a href="callto:5551234567">+(555) 123 45 67</a></span></div>
+            </div>
+            <div class="foot_contact foot_contact--mail">
+                <div class="i-wrap"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                <div class="contact-content"><span><a href="mailto:wasturina.ekatterina@gmail.com">wasturina.ekatterina@gmail.com</a></span><br>
+                <span>madewithlove2020</span></div>
+            </div>
+            <div class="foot_contact foot_contact--scedule">
+                <div class="i-wrap"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                <div class="contact-content"><span>Mon - Sat: 08 AM - 17 PM</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="social">
+    <ul>
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li>
+    </ul>
+    <span>Copyright &copy; 2020 VashurinaKate. All rights reserved.</span>
+    </div>     
+</footer>
+
+Styleguide Footer
+*/
+footer {
+    /*position: absolute;*/
+    color: $text-color-main;
+    width: 100%;
+    background: url('img/footer-bg.jpg'), $gradient-dense;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    padding: 20px;
+}
+.footer-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+.footer-wrap > div {
+    padding: 20px;
+}
+.footer-wrap h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.footer-wrap p, span {
+    line-height: 20px;
+}
+.about_company {
+    flex: 1;
+}
+.about_company .btn {
+    margin-top: 20px;
+}
+.our_featured {
+    flex: 1;
+}
+.our_featured > ul {
+    padding: 0 20px 40px 0;
+}
+.our_featured a {
+    padding-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    color: $text-color-main;
+    font-weight: bold;
+}
+.our_featured a:hover {
+    transition: 0.2s;
+}
+.our_featured a::before {
+    content: '';
+    transition: 0.2s;
+}
+.our_featured a:hover::before {
+    content: "\203A";
+    margin: 0 10px;
+}
+.latest_news {
+    flex: 1;
+}
+.contact_us {
+    flex: 1;
+}
+.foot_contact {
+    display: flex;
+    padding-bottom: 20px;
+}
+.foot_contact > .i-wrap {
+    padding-right: 20px;
+}
+
+footer .social {
+    margin: 0 auto;
+    width: min-content;
+}
+footer > .social > ul {
+    padding: 20px 50px;
+}

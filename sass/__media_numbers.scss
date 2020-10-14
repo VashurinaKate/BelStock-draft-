@@ -1,0 +1,82 @@
+/*
+Media_Numbers
+
+Медиа-объект с численными показателями
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="media-numbers">
+    <div class="help-num"></div>
+    <div class="media-numbers-body">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <div class="media-num-content">
+            <span>1520</span>
+            <h3>Hours worked</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quo reprehenderit aperiam, perferendis neque ipsum eius amet doloremque sint voluptas!</p>
+            <hr>
+        </div> 
+    </div>
+</div>
+
+Styleguide Media.Media_Numbers
+*/
+.media-numbers {
+    max-width: 400px;
+    max-height: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+.media-numbers:hover .help-num {
+    opacity: 1;
+}
+.help-num {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: $transition-hover;
+    z-index: -1;
+    background: $gradient-dense;
+}
+.media-numbers-body {
+    padding: 40px 40px;
+    color: $text-color-main;
+
+}
+.media-numbers-body > i {
+    float: left;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    padding: 10px 0;
+    position: relative;
+}
+
+.media-numbers-body i::before {
+    transition: all 1s;
+    opacity: 1;
+    background: $gradient-dense;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.media-numbers-body:hover i::before {
+    -webkit-text-fill-color: $text-color-main;
+}
+.media-numbers span {
+    font-size: 40px;
+}
+.media-numbers h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.media-num-content {
+    overflow: auto;
+}
+.media-numbers hr {
+    transition: $transition-hover;
+}
+.media-numbers:hover hr {
+    border: 1px solid $text-color-main;
+    width: 70px;
+}

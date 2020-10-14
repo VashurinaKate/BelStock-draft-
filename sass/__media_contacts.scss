@@ -1,0 +1,79 @@
+/*
+Media_Contacts
+
+Медиа-объект с контактами
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="media_contatcs {{modifier_class}}">
+    <h3>Adress</h3>
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <p>Овчинниковская набережная, 22/24с1</p>
+    <span>Москва, Россия, 115035</span>
+</div>
+<div class="media_contatcs media_contacts--adress">
+    <h3>Adress</h3>
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    <p>Овчинниковская набережная, 22/24с1</p>
+    <span>Москва, Россия, 115035</span>
+</div>
+<div class="media_contatcs media_contacts--phone">
+    <h3>Phone</h3>
+    <i class="fa fa-mobile" aria-hidden="true"></i>
+    <p>Phone:<span>+7 921 185 60 88</span></p>
+    <p>Fax:<span>+(800) 789 123 456</span></p>
+</div>
+<div class="media_contatcs media_contacts--email">
+    <h3>E-mail</h3>
+    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+    <span><a href="mailto:wasturina.ekatterina@gmail.com">wasturina.ekatterina@gmail.com</a></span>
+</div>
+
+Styleguide Media.Media_Contacts
+*/
+.media_contatcs {
+    width: 320px;
+    height: 320px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    text-align: center;
+    padding-top: 25px;
+}
+.media_contatcs::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -2px;
+    background: $hr-color;
+    border-radius: inherit;
+}
+.media_contatcs > h3 {
+    text-transform: uppercase;
+}
+.media_contatcs > i {
+    font-size: 50px;
+    background: $hr-color;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.media_contatcs > p {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.media_contatcs a {
+    color: black;
+    text-decoration: none;
+    line-height: 60px;
+    transition: $transition-hover;
+}
+.media_contatcs a:hover {
+    color: $sale-price;
+}

@@ -1,0 +1,36 @@
+/*
+Search_Field_in_Categories
+
+Еще один вид поля поиска в категориях товаров.
+Стили с основным полем поиска (которое в меню) могут пересекаться, поэтому имеет значение последовательность @import в sass
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="search__field search__field-2">
+    <span>Search</span>
+    <hr>
+    <form class="search-form">
+        <div class="search-block"><input type="search" value="" placeholder="Search" class="search-input">
+            <button type="submit" class="search search--button"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
+</div>
+
+Styleguide Search_Elements.Search_Field_in_Categories
+*/
+.search__field-2 {
+    width: 300px;
+    height: 130px;
+    background: white;
+    box-shadow: $shadow;
+}
+.search__field-2 > span {
+    text-transform: uppercase;
+    line-height: 40px;
+}
+
+.search__field-2 .search-input {
+    border: 1px solid $text-color_2;
+    width: 270px;
+}
+

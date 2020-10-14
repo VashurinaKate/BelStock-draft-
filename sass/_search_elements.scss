@@ -1,0 +1,36 @@
+/* 
+Search_Elements
+
+Элементы поиска и значок просмотра корзины.
+Важно не забыть добавить в html в head  `<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">` , чтобы появился значок корзины. В данном случае в тег button добавляется  `<i class="fa fa-shopping-cart" aria-hidden="true"></i>`
+
+Markup:
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+<div class="search {{modifier_class}}"><i class="fa fa-search"></i></div>
+<div class="search search--transp"><i class="fa fa-search"></i></div>
+<div class="search search--main"><i class="fa fa-search"></i></div>
+<div class="search search--cart"><i class="fa fa-shopping-cart"></i></div>
+
+.search--main - лупа с заливкой
+.search--transp - лупа на прозрачном фоне
+.search--cart - просмотр корзины
+
+Styleguide Search_Elements
+*/
+.search {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $text-color-main;
+    border-radius: 50%;
+    color: $text-color-main;
+    cursor: pointer;
+}
+.search > i {
+    padding: 12px 0 0 13px;
+}
+.search--main {
+    background: $hr-color;
+    border: 1px solid transparent;
+}
+
+@import '__search_field';
